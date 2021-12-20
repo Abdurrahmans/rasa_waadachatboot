@@ -1,0 +1,195 @@
+version: "3.0"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - policy_purchase
+  - policy_claim
+  - policy_renew
+  - out_of_scope
+
+forms:
+  policy_purchase_form:
+    required_slots:
+    - purchase
+    - user_id
+    - category
+    - traget
+    - package
+    - upgrade
+  
+  policy_claim_form:
+    required_slots:
+    - policy_id
+    - detailed_info
+    - otp
+  
+  policy_renew_form:
+    required_slots:
+    - policy_id
+    - detailed_info
+
+slots:
+  purchase: 
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: purchase 
+          
+  user_id:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: user_id
+      - active_loop: policy_claim_form
+        requested_slot: user_id
+          
+  policy_id:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_claim_form
+        requested_slot: policy_id
+      - active_loop: policy_renew_form
+        requested_slot: policy_id
+        
+  target:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: target
+        
+  category:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: category
+
+  package:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: package
+
+  upgrade:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_purchase_form
+        requested_slot: upgrade
+        
+  detailed_info:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_claim_form
+        requested_slot: detailed_info
+      - active_loop: policy_renew_form
+        requested_slot: detailed_info
+        
+  otp:
+    type: text
+    mappings:
+    - type: from_text
+      conditions:
+      - active_loop: policy_claim_form
+        requested_slot: otp   
+  
+      
+      
+responses:
+  utter_greet:
+  - text: Hi I am Waadaa Bot. We vouch to secure your future with our attractive digital insuretech packages and services. Which of our services would you need? Please select from Purchase Policy,Claim a Policy, Renew a Policy. General Query (FAQ), Complain Management
+  
+  utter_ask_purchase:
+  - text: Have you purchased from us before?
+    buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+
+  utter_ask_user_id:
+  - text: Provide your user ID/Phone number kindly
+
+  utter_ask_category:
+  - text: Please choose a category- Life, Health
+    buttons:
+    - title: Life
+      payload: Life
+    - title: Health
+      payload: Health
+  
+  utter_ask_target:
+  - text: Who are you buying for? Family or personal??
+    buttons:
+    - title: Family
+      payload: Family
+    - title: Personal
+      payload: Personal
+  
+  utter_ask_package:
+  - text: We have two kinds of package under this category - Silver and Gold. Which one would you like to purchase?
+    buttons: 
+    - title: Silver
+      payload: Silver
+    - title: GOld
+      payload: Gold
+  
+  utter_ask_upgrade:
+  - text: This package is available for single, spouse and family parchase. You can upgrade your package to Gold to get more benefits. Would you like to upgrade?
+    buttons:
+    - title: Yes
+      payload: Yes
+    - title: No
+      payload: No
+
+  utter_ask_detailed_info:
+  - text: Kindly provide your detailed information
+
+  utter_ask_policy_id:
+  - text: Please provide your policy id
+  
+  utter_ask_otp:
+  - text: An OTP has been sent to your number, kindly verify your number
+  
+  utter_out_of_scope:
+  - text: Sorry, I can't handle that request.
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: Thank you for choosing us.
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

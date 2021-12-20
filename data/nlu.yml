@@ -1,0 +1,163 @@
+version: "3.0"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: policy_purchase
+  examples: |
+    -  I want to purchase policy
+    -  how to purchase policy
+    -  I'd like to purchase policy
+    -  kindly tell me how to purchase policy
+    -  may I know how to purchase policy
+    -  can you tell me how purchase policy
+    -  will you let me know how to purchase policy
+    -  I'd want to buy a policy.
+    -  I'd choose to buy insurance.
+    -  Please instruct me on how to buy a policy.
+    -  I'd like to know how to get a policy.
+    -  Will you please tell me how to get a policy?
+    -  I'd want to get a policy.
+    -  how to buy a policy
+    -  I am having trouble purchasing a policy
+
+- intent: policy_claim
+  examples: |
+    -  I want to claim policy
+    -  how to claim policy
+    -  I'd like to claim policy
+    -  kindly tell me how to claim policy
+    -  may I know how to claim policy
+    -  can you tell me how claim policy
+    -  will you let me know how to claim policy
+    -  I'd want to claim policy
+    -  I'd choose to claim policy
+    -  Please instruct me on how to claim policy
+    -  I'd like to know how to claim policy
+    -  Will you please tell me how to claim policy
+    -  I'd want to get claim policy
+    -  how to claim policy
+    -  I cannot make any claims
+    -  I am having trouble making a claim
+    
+- intent: policy_claim
+  examples: |
+    -  I want to renew policy
+    -  how to renew policy
+    -  I'd like to renew policy
+    -  kindly tell me how to renew policy
+    -  may I know how to renew policy
+    -  can you tell me how renew policy
+    -  will you let me know how to renew policy
+    -  I'd want to renew policy
+    -  I'd choose to renew policy
+    -  Please instruct me on how to renew policy
+    -  I'd like to know how to renew policy
+    -  Will you please tell me how to renew policy
+    -  I'd want to get renew policy
+    -  how to renew policy
+
+- intent: out_of_scope
+  examples: |
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - I want to order food
+    - What is 2 + 2?
+    - Who's the US President?
+    - ke re tui?
+    - Noakhali bivag chai
+    - Acid ke?
+    - murad takla
+    - who are you?
+    - top restaurants in dhaka
+    - best footballer?
+    - bondho sim chalu korle ki offer ase?
+
+

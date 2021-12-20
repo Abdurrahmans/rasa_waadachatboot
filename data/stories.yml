@@ -1,0 +1,50 @@
+version: "3.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: Activate Policy Purchase form one
+  steps:
+  - intent: policy_purchase
+  - action: policy_purchase_form
+  - active_loop: policy_purchase_form  
+
+
+- story: Activate Policy Renew
+  steps:
+  - intent: policy_renew
+  - action: policy_renew_form
+  - active_loop: policy_renew_form
+
+
+- story: Activate Policy Claim
+  steps:
+  - intent: policy_claim
+  - action: policy_claim_form
+  - active_loop: policy_claim_form
